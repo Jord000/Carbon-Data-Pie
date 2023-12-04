@@ -15,7 +15,7 @@ function GraphController() {
     ).then((data) => {
       setGraphData(data.json());
     });
-  });
+  },[]);
 
   return (
     <>
