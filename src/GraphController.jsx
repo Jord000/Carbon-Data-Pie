@@ -2,20 +2,20 @@ import DateRange from './DateRange';
 import LocationPicker from './LocationPicker';
 import CarbonIntensity from './CarbonIntesity';
 import { useEffect, useState } from 'react';
+import { getCarbonByRegion } from './api';
+
 
 function GraphController() {
-  const [dateFrom, setDateFrom] = useState('2023-12-03T13:00Z');
-  const [dateTo, setDateTo] = useState('2023-12-04T13:00Z');
+  const [dateFrom, setDateFrom] = useState(new Date(2023, 10, 1).toISOString());
+  const [dateTo, setDateTo] = useState(new Date(2023, 10, 2).toISOString());
   const [location, setLocation] = useState('15');
-  const [graphData, setGraphData] = useState({});
+  const [graphData, setGraphData] = useState([]);
 
   useEffect(() => {
-    fetch(
-      `GET https://api.carbonintensity.org.uk/regional/intensity/${dateFrom}/${dateTo}/regionid/${location}`
-    ).then((data) => {
-      setGraphData(data.json());
+    getCarbonByRegion(dateFrom, dateTo, location).then((data) => {
+      setGraphData(data);
     });
-  },[]);
+  }, []);
 
   return (
     <>
