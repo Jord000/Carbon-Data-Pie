@@ -8,6 +8,7 @@ export default function LocationPicker({ location, setLocation }) {
   };
 
   return (
+    <div className='country-selector'>
     <Select
       defaultValue="15"
       onChange={handleChange}
@@ -16,6 +17,7 @@ export default function LocationPicker({ location, setLocation }) {
       <Option value="16">Scotland</Option>
       <Option value="17">Wales</Option>
     </Select>
+    </div>
   );
 }
 

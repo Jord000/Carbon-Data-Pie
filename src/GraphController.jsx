@@ -2,7 +2,7 @@ import DateRange from './DateRange';
 import LocationPicker from './LocationPicker';
 import CarbonIntensity from './CarbonIntesity';
 import { useEffect, useState } from 'react';
-import { getCarbonByRegion } from './api';
+import { getCarbonByRegion } from './utils/api';
 
 
 function GraphController() {
@@ -18,10 +18,10 @@ function GraphController() {
   }, [dateFrom,dateTo,location]);
 
   return (
-    <><div class='Graph-Controller'>
+    <><div className='Graph-Controller'>
       <CarbonIntensity graphData={graphData} />
       </div>
-      <div class='Date-Range-Location-Picker'>
+      <div className='Date-Range-Location-Picker'>
       <DateRange
         dateFrom={dateFrom}
         setDateFrom={setDateFrom}
