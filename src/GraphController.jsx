@@ -18,8 +18,10 @@ function GraphController() {
   }, [dateFrom,dateTo,location]);
 
   return (
-    <>
+    <><div class='Graph-Controller'>
       <CarbonIntensity graphData={graphData} />
+      </div>
+      <div class='Date-Range-Location-Picker'>
       <DateRange
         dateFrom={dateFrom}
         setDateFrom={setDateFrom}
@@ -30,6 +32,7 @@ function GraphController() {
         location={location}
         setLocation={setLocation}
       />
+     </div>
     </>
   );
 }

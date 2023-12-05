@@ -1,16 +1,17 @@
-import { PieChart, Pie } from 'recharts';
+import { Typography } from '@mui/material';
+import { PieChart } from '@mui/x-charts/PieChart';
 
 function CarbonIntensity({ graphData }) {
   const graphDataFormatting = [
-    { fuel: 'biomass', perc: 0 },
-    { fuel: 'coal', perc: 0 },
-    { fuel: 'imports', perc: 0 },
-    { fuel: 'gas', perc: 0 },
-    { fuel: 'nuclear', perc: 0 },
-    { fuel: 'other', perc: 0 },
-    { fuel: 'hydro', perc: 0 },
-    { fuel: 'solar', perc: 0 },
-    { fuel: 'wind', perc: 0 },
+    { label: 'biomass', value: 0 },
+    { label: 'coal', value: 0 },
+    { label: 'imports', value: 0 },
+    { label: 'gas', value: 0 },
+    { label: 'nuclear', value: 0 },
+    { label: 'other', value: 0 },
+    { label: 'hydro', value: 0 },
+    { label: 'solar', value: 0 },
+    { label: 'wind', value: 0 },
   ];
 
   const graphMap = graphData.map((data) => {
@@ -20,9 +21,9 @@ function CarbonIntensity({ graphData }) {
   graphMap.forEach((fuelArray, index) => {
     fuelArray.forEach((fuel) => {
       for (const element of graphDataFormatting) {
-        if (element.fuel === fuel.fuel) {
-          element.perc += fuel.perc;
-          element.perc = Number(parseFloat(element.perc).toFixed(2));
+        if (element.label === fuel.fuel) {
+          element.value += fuel.perc;
+          element.value = Number(parseFloat(element.value).toFixed(2));
         }
       }
     });
@@ -33,35 +34,45 @@ function CarbonIntensity({ graphData }) {
     }
   });
 
-
-
-  let renderLabel = function (entry) {
-    if(entry.perc<5){
-      entry.position = 'outside'
-  entry.offset = 10}
-      
-    return entry.fuel;
-  };
-
-
+  const myColours = [
+    '#dcf2b3',
+    '#352f57',
+    '#f5d0d3',
+    '#1f3399',
+    '#e9b9eb',
+    '#943837',
+    '#7bede7',
+    '#eb921e',
+    '#b3f2ba',
+  ];
 
   const CarbonGraph = () => (
     <PieChart
-      width={500}
-      height={500}
-    >
-      <Pie
-        data={graphDataFormatting}
-        dataKey="perc"
-        cx="50%"
-        cy="50%"
-        innerRadius={50}
-        outerRadius={150}
-        fill="#82ca9d"
-        label={renderLabel}
-        
-      />
-    </PieChart>
+
+      colors={myColours}
+      series={[
+        {
+          data: graphDataFormatting,
+        },
+      ]}
+       margin={{
+        left: 0,
+        top: 20,
+        right: 100,
+        bottom: 20,
+      }}
+      slotProps={{
+        legend: {
+          padding: 10,
+          direction: 'column',
+          position: { horizontal: 'right' },
+          labelStyle: {
+            fontSize: '2.8vw',
+            padding: 1,
+          },
+        },
+      }}
+    />
   );
   return <CarbonGraph />;
 }

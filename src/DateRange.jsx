@@ -2,10 +2,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
 
 function DateRange({ dateFrom, setDateFrom, setDateTo, dateTo }) {
-  console.log(dateFrom, dateTo);
   const errorMessage = 'Please select a time frame within 40 days';
-  
-
 
   return (
     <>
@@ -28,7 +25,6 @@ function DateRange({ dateFrom, setDateFrom, setDateTo, dateTo }) {
         format="DD-MM-YYYY"
         label="To"
         maxDate={dayjs().add(2, 'day')}
-      
       />
     </>
   );

@@ -7,7 +7,6 @@ const carbonApi = axios.create({
 
 export const getCarbonByRegion = (dateFrom,dateTo,location)=>{
     return carbonApi.get(`/regional/intensity/${dateFrom}/${dateTo}/regionid/${location}`).then(({data:{data:{data}}})=>{
-        console.log(data)
          return data
     })
 
