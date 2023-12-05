@@ -15,7 +15,7 @@ function GraphController() {
     getCarbonByRegion(dateFrom, dateTo, location).then((data) => {
       setGraphData(data);
     });
-  }, []);
+  }, [dateFrom,dateTo,location]);
 
   return (
     <>
