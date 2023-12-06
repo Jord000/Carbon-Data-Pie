@@ -10,6 +10,7 @@ export default function LocationPicker({ location, setLocation }) {
   return (
     <div className='country-selector'>
     <Select
+      sx={{width:1}}
       defaultValue="15"
       onChange={handleChange}
     >
@@ -21,4 +22,4 @@ export default function LocationPicker({ location, setLocation }) {
   );
 }
 
-//expand region id to be full object map from api
+
