@@ -8,9 +8,9 @@ export default function LocationPicker({ location, setLocation }) {
   };
 
   return (
-    <div className='country-selector'>
+
     <Select
-      sx={{width:1}}
+      sx={{ width: '80%', textAlign: 'center' }}
       defaultValue="15"
       onChange={handleChange}
     >
@@ -18,7 +18,7 @@ export default function LocationPicker({ location, setLocation }) {
       <Option value="16">Scotland</Option>
       <Option value="17">Wales</Option>
     </Select>
-    </div>
+
   );
 }
 

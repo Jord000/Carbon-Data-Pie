@@ -1,7 +1,10 @@
 import { Typography } from '@mui/material';
 import { PieChart } from '@mui/x-charts/PieChart';
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 
-function CarbonIntensity({ graphData }) {
+
+function CarbonIntensity({ graphData, isLoading }) {
   const graphDataFormatting = [
     { label: 'biomass', value: 0 },
     { label: 'coal', value: 0 },
@@ -55,8 +58,8 @@ function CarbonIntensity({ graphData }) {
           data: graphDataFormatting,
         },
       ]}
-       margin={{
-        left: 0,
+      margin={{
+        left: 10,
         top: 20,
         right: 100,
         bottom: 20,
@@ -74,7 +77,16 @@ function CarbonIntensity({ graphData }) {
       }}
     />
   );
-  return <CarbonGraph />;
+  if (isLoading) {
+
+
+    return (
+      <Box sx={{ width: '70%' }}>
+        <h2>Loading data, thank you for your patience...</h2>
+        <LinearProgress />
+      </Box>
+    );
+  } else return <CarbonGraph />;
 }
 
 export default CarbonIntensity;

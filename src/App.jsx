@@ -8,8 +8,10 @@ function App() {
   return (
     <>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <Header />
-        <GraphController />
+        <div className='master-container'>
+          <Header />
+          <GraphController />
+        </div>
       </LocalizationProvider>
     </>
   );

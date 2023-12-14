@@ -10,17 +10,20 @@ function GraphController() {
   const [dateTo, setDateTo] = useState(new Date(2023, 10, 2).toISOString());
   const [location, setLocation] = useState('15');
   const [graphData, setGraphData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
+    setIsLoading(true)
     getCarbonByRegion(dateFrom, dateTo, location).then((data) => {
-      setGraphData(data);
+      setGraphData(data)
+      setIsLoading(false);
     });
-  }, [dateFrom,dateTo,location]);
+  }, [dateFrom, dateTo, location]);
 
   return (
     <><div className='Graph-Controller'>
-      <CarbonIntensity graphData={graphData} />
-      </div>
+      <CarbonIntensity graphData={graphData} isLoading={isLoading} />
+    </div>
 
       <DateRange
         dateFrom={dateFrom}
@@ -28,11 +31,12 @@ function GraphController() {
         dateTo={dateTo}
         setDateTo={setDateTo}
       />
-      <LocationPicker
-        location={location}
-        setLocation={setLocation}
-      />
-
+      <div className='location-container'>
+        <LocationPicker
+          location={location}
+          setLocation={setLocation}
+        />
+      </div>
     </>
   );
 }
