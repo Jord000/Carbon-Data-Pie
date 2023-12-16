@@ -10,3 +10,5 @@ https://carbon-data-pie.netlify.app/
 
 If you would like to run locally clone the repo, download dependencies and then run 
 \npm run dev
+
+-Jordan 🐛
