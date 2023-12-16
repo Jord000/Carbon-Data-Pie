@@ -25,7 +25,10 @@ body {
 
 @media (min-width: 1000px) {
   .Header-container {
-    height: 20vh
+    height: 20vh;
+   margin-left: 10%;
+   margin-right: 10%;
+   margin-bottom: 50px;
   }
 }
 
@@ -69,6 +72,17 @@ p {
     margin-top: 10px;
   }
 }
+
+@media (min-width: 1000px) {
+  .Graph-Controller {
+    height: 40vh;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
 
 .date-selector {
   display: flex;
