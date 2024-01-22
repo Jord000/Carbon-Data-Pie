@@ -6,8 +6,10 @@ import { getCarbonByRegion } from './utils/api';
 
 
 function GraphController() {
-  const [dateFrom, setDateFrom] = useState(new Date(2023, 10, 1).toISOString());
-  const [dateTo, setDateTo] = useState(new Date(2023, 10, 2).toISOString());
+  const today = new Date()
+  const yesterday = ( d => new Date(d.setDate(d.getDate()-1)) )(new Date)
+  const [dateFrom, setDateFrom] = useState(yesterday.toISOString());
+  const [dateTo, setDateTo] = useState(today.toISOString());
   const [location, setLocation] = useState('15');
   const [graphData, setGraphData] = useState([]);
   const [isLoading, setIsLoading] = useState(false)

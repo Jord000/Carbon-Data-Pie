@@ -1,8 +1,7 @@
-import { Typography } from '@mui/material';
-import { PieChart } from '@mui/x-charts/PieChart';
-import Box from '@mui/material/Box';
-import LinearProgress from '@mui/material/LinearProgress';
-
+import { Typography } from '@mui/material'
+import { PieChart } from '@mui/x-charts/PieChart'
+import Box from '@mui/material/Box'
+import LinearProgress from '@mui/material/LinearProgress'
 
 function CarbonIntensity({ graphData, isLoading }) {
   const graphDataFormatting = [
@@ -15,27 +14,27 @@ function CarbonIntensity({ graphData, isLoading }) {
     { label: 'hydro', value: 0 },
     { label: 'solar', value: 0 },
     { label: 'wind', value: 0 },
-  ];
+  ]
 
   const graphMap = graphData.map((data) => {
-    return data.generationmix;
-  });
+    return data.generationmix
+  })
 
   graphMap.forEach((fuelArray, index) => {
     fuelArray.forEach((fuel) => {
       for (const element of graphDataFormatting) {
         if (element.label === fuel.fuel) {
-          element.value += fuel.perc;
-          element.value = Number(parseFloat(element.value).toFixed(2));
+          element.value += fuel.perc
+          element.value = Number(parseFloat(element.value).toFixed(2))
         }
       }
-    });
+    })
     if (graphData.length - 1 === index) {
       for (const element of graphDataFormatting) {
-        element.perc = Number((element.perc / graphData.length).toFixed(2));
+        element.perc = Number((element.perc / graphData.length).toFixed(2))
       }
     }
-  });
+  })
 
   const myColours = [
     '#dcf2b3',
@@ -47,11 +46,10 @@ function CarbonIntensity({ graphData, isLoading }) {
     '#7bede7',
     '#eb921e',
     '#b3f2ba',
-  ];
+  ]
 
   const CarbonGraph = () => (
     <PieChart
-
       colors={myColours}
       series={[
         {
@@ -76,17 +74,15 @@ function CarbonIntensity({ graphData, isLoading }) {
         },
       }}
     />
-  );
+  )
   if (isLoading) {
-
-
     return (
       <Box sx={{ width: '70%' }}>
         <h2>Loading data, thank you for your patience...</h2>
         <LinearProgress />
       </Box>
-    );
-  } else return <CarbonGraph />;
+    )
+  } else return <CarbonGraph />
 }
 
-export default CarbonIntensity;
+export default CarbonIntensity
