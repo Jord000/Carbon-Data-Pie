@@ -25,19 +25,21 @@ function GraphController() {
     <>
       <div className="Graph-Controller">
         <CarbonIntensity graphData={graphData} isLoading={isLoading} />
-
-        <DateRange
-          dateFrom={dateFrom}
-          setDateFrom={setDateFrom}
-          dateTo={dateTo}
-          setDateTo={setDateTo}
-        />
-        <div className="location-container">
-          <LocationPicker location={location} setLocation={setLocation} />
+        <div className='date-and-location'>
+          <DateRange
+            dateFrom={dateFrom}
+            setDateFrom={setDateFrom}
+            dateTo={dateTo}
+            setDateTo={setDateTo}
+          />
+          <div className="location-container">
+            <LocationPicker location={location} setLocation={setLocation} />
+          </div>
         </div>
       </div>
     </>
   )
+
 }
 
 export default GraphController

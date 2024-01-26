@@ -77,7 +77,7 @@ function CarbonIntensity({ graphData, isLoading }) {
   )
   if (isLoading) {
     return (
-      <Box sx={{ width: '70%' }}>
+      <Box sx={{ width: '70%' ,marginBottom:'10px',marginTop:'12px'}}>
         <h2>Loading data, thank you for your patience...</h2>
         <LinearProgress />
       </Box>
