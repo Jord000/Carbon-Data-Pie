@@ -23,7 +23,8 @@ body {
 
 .Header-container{
   width: 90%;
-  margin:auto
+  margin:auto;
+  margin-top: 3vh;
 }
 
 @media (min-width: 750px) {

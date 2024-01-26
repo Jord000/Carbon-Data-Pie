@@ -13,6 +13,8 @@ function DateRange({ dateFrom, setDateFrom, setDateTo, dateTo }) {
           justifyContent: 'center',
           alignItems: 'center',
           display: 'flex',
+          marginBottom:'10px',
+          padding:'0'
         }}
       >
         <DatePicker
@@ -36,6 +38,8 @@ function DateRange({ dateFrom, setDateFrom, setDateTo, dateTo }) {
           justifyContent: 'center',
           alignItems: 'center',
           display: 'flex',
+          padding:'0',
+          marginBottom:'8px',
         }}
       >
         <DatePicker
