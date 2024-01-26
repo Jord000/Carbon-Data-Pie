@@ -2,8 +2,28 @@ import { Typography } from '@mui/material'
 import { PieChart } from '@mui/x-charts/PieChart'
 import Box from '@mui/material/Box'
 import LinearProgress from '@mui/material/LinearProgress'
+import { useState,useEffect } from 'react'
 
 function CarbonIntensity({ graphData, isLoading }) {
+  const [legendTextSize, setlegendTextSize] = useState(window.innerWidth>=1000?'2.0vw':'2.8vw')
+
+
+//choose the screen size 
+const handleResize = () => {
+  if (window.innerWidth >= 1000) {
+      setlegendTextSize('2.0vw')}
+  else{
+    setlegendTextSize('2.8vw')
+  }
+}
+
+
+useEffect(() => {
+  window.addEventListener("resize", handleResize)
+})
+
+
+
   const graphDataFormatting = [
     { label: 'biomass', value: 0 },
     { label: 'coal', value: 0 },
@@ -56,19 +76,12 @@ function CarbonIntensity({ graphData, isLoading }) {
           data: graphDataFormatting,
         },
       ]}
-      margin={{
-        left: 10,
-        top: 20,
-        right: 100,
-        bottom: 20,
-      }}
       slotProps={{
         legend: {
-          padding: 10,
           direction: 'column',
           position: { horizontal: 'right' },
           labelStyle: {
-            fontSize: '2.8vw',
+            fontSize: legendTextSize,
             padding: 1,
           },
         },
@@ -77,7 +90,7 @@ function CarbonIntensity({ graphData, isLoading }) {
   )
   if (isLoading) {
     return (
-      <Box sx={{ width: '70%' ,marginBottom:'10px',marginTop:'12px'}}>
+      <Box sx={{ width: '70%', marginBottom: '10px', marginTop: '12px' }}>
         <h2>Loading data, thank you for your patience...</h2>
         <LinearProgress />
       </Box>

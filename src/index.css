@@ -4,8 +4,8 @@
 
 html,
 body {
-   margin: 0;
-   padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -15,15 +15,13 @@ body {
   flex-direction: column;
   width: 100%;
   align-items: center;
-  max-width:100%;
-  max-height:100%
+  max-width: 100%;
+  max-height: 100%;
 }
 
-
-
-.Header-container{
+.Header-container {
   width: 90%;
-  margin:auto;
+  margin: auto;
   margin-top: 3vh;
 }
 
@@ -38,9 +36,9 @@ body {
 @media (min-width: 1000px) {
   .Header-container {
     height: 20vh;
-   margin-left: auto;
-   margin-right: auto;
-   margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
   }
 }
 
@@ -55,7 +53,6 @@ h1 {
     font-size: 3vw;
   }
 }
-
 
 .intro-description {
   font-size: 2.5vw;
@@ -75,7 +72,7 @@ p {
   margin-bottom: 10px;
   width: 90%;
   margin: auto;
-  height:45vh
+  height: 45vh;
 }
 
 @media (min-width: 750px) {
@@ -97,6 +94,10 @@ p {
   }
 }
 
+.date-and-location {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .date-selector {
   display: flex;
@@ -121,8 +122,6 @@ p {
   margin-bottom: 80px;
 }
 
-
-
 .MuiOutlinedInput-root {
   background-color: white;
   height: 80%;
@@ -144,10 +143,9 @@ p {
   width: 90%;
 }
 
-
 @media (min-height: 900px) {
   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
-    padding: 10px
+    padding: 10px;
   }
 }
 
